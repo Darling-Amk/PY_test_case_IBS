@@ -1,9 +1,26 @@
 from datetime import datetime
-
+from pydantic import BaseModel
+from typing import Optional
 from sqlalchemy import MetaData,Integer,String,TIMESTAMP,ForeignKey,Table,Column
 
-
 metadata = MetaData()
+
+
+class User(BaseModel):
+    id: int
+    name: str
+    username: str
+    job: str
+    photo: Optional[str] = None
+
+
+
+class Post(BaseModel):
+    id: int
+    id_user: int
+    title: str
+    description: str
+    date: Optional[datetime]
 
 Users = Table(
     "tblUsers",
