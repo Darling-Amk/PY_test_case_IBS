@@ -1,6 +1,6 @@
 import sqlite3
 #from configenv import DB_PATH,DB_FILE
-from models import User,Post
+from src.models import User,Post
 
 load_dotenv()
 
