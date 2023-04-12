@@ -1,6 +1,11 @@
 import sqlite3
-from configenv import DB_PATH,DB_FILE
+#from configenv import DB_PATH,DB_FILE
 from models import User,Post
+
+load_dotenv()
+
+DB_PATH = os.environ.get("DB_PATH")
+DB_FILE =  os.environ.get("DB_FILE")
 
 con = sqlite3.connect(f'{DB_PATH}/{DB_FILE}', check_same_thread=False)
 cur = con.cursor()
