@@ -1,5 +1,5 @@
 import sqlite3
-from src.configenv import DB_PATH,DB_FILE
+from src.config import DB_PATH,DB_FILE
 from src.models import User,Post
 
 
