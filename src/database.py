@@ -41,13 +41,13 @@ def add_post(post:Post):
     return get_posts(post.id_user)
 
 def get_users(offset=0,limit=None):
-    if not con:
-        return ["error connect"]
     res = []
     q = "SELECT * from tblUsers"
 
     if limit and  0<limit:
         q+=f" LIMIT {limit}"
+    else:
+        q+=f" LIMIT {5}"
     if offset and 0<offset:
         q+=f" OFFSET {offset}"
 
@@ -59,8 +59,11 @@ def get_posts(id_user,limit=None,offset=0) -> list:
     res = []
     q = f"SELECT * from tblPosts WHERE id_user = {id_user}"
 
+
     if limit and 0 < limit:
         q += f" LIMIT {limit}"
+    else:
+        q+=f" LIMIT {5}"
     if offset and 0 < offset:
         q += f" OFFSET {offset}"
 
