@@ -22,7 +22,7 @@ cur.execute('''CREATE TABLE IF NOT EXISTS "tblPosts" (
     date TIMESTAMP, 
     PRIMARY KEY (id), 
     FOREIGN KEY(id_user) REFERENCES "tblUsers" (id)
-)
+
 )''')
 def add_user(user:User):
     cur.execute(f"""INSERT INTO tblUsers VALUES
