@@ -1,51 +1,10 @@
 import sqlite3
-
 from config import DB_PATH,DB_FILE
 from models import User,Post
 
 con = sqlite3.connect(f'{DB_PATH}/{DB_FILE}', check_same_thread=False)
 cur = con.cursor()
 
-
-
-posts = [
-    {
-        "id_user":1,
-        "title": "Заголовок поста1",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis nec platea ipsum ornare interdum. Aliquet metus suscipit ornare aliquet accumsan, massa risus quisque ac. Pellentesque risus mauris mattis viverra amet sed elit. Pellentesque dui vitae amet diam convallis nisi nec.",
-        "date": "2023-04-07T15:16:10+00:00"
-    },
-    {
-        "id_user": 1,
-        "title": "Заголовок поста2",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis nec platea ipsum ornare interdum. Aliquet metus suscipit ornare aliquet accumsan, massa risus quisque ac. Pellentesque risus mauris mattis viverra amet sed elit. Pellentesque dui vitae amet diam convallis nisi nec.",
-        "date": "2023-04-07T15:16:10+00:00"
-    },
-    {
-        "id_user": 1,
-        "title": "Заголовок поста3",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis nec platea ipsum ornare interdum. Aliquet metus suscipit ornare aliquet accumsan, massa risus quisque ac. Pellentesque risus mauris mattis viverra amet sed elit. Pellentesque dui vitae amet diam convallis nisi nec.",
-        "date": "2023-04-07T15:16:10+00:00"
-    },
-    {
-        "id_user": 1,
-        "title": "Заголовок поста4",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis nec platea ipsum ornare interdum. Aliquet metus suscipit ornare aliquet accumsan, massa risus quisque ac. Pellentesque risus mauris mattis viverra amet sed elit. Pellentesque dui vitae amet diam convallis nisi nec.",
-        "date": "2023-04-07T15:16:10+00:00"
-    },
-    {
-        "id_user": 1,
-        "title": "Заголовок поста5",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis nec platea ipsum ornare interdum. Aliquet metus suscipit ornare aliquet accumsan, massa risus quisque ac. Pellentesque risus mauris mattis viverra amet sed elit. Pellentesque dui vitae amet diam convallis nisi nec.",
-        "date": "2023-04-07T15:16:10+00:00"
-    },
-    {
-        "id_user": 2,
-        "title": "Заголовок поста6",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis nec platea ipsum ornare interdum. Aliquet metus suscipit ornare aliquet accumsan, massa risus quisque ac. Pellentesque risus mauris mattis viverra amet sed elit. Pellentesque dui vitae amet diam convallis nisi nec.",
-        "date": "2023-04-07T15:16:10+00:00"
-    },
-]
 
 def add_user(user:User):
     cur.execute(f"""INSERT INTO tblUsers VALUES
@@ -61,7 +20,7 @@ def add_post(post:Post):
                 """
                 )
     con.commit()
-    #return get_posts(post.id_user)
+    return get_posts(post.id_user)
 
 def get_users(offset=0,limit=None):
     res = []

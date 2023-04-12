@@ -1,8 +1,8 @@
 import uvicorn
 from fastapi import FastAPI
 from typing import List
-from models import User,Post
-from database import get_posts, get_users, add_user, add_post
+from src.models import User,Post
+from src.database import get_posts, get_users, add_user, add_post
 
 app = FastAPI()
 
