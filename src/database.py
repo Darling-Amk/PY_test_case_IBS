@@ -5,11 +5,26 @@ from src.models import User,Post
 
 con = sqlite3.connect(f'../ibs.db', check_same_thread=False)
 cur = con.cursor()
+cur.execute('''CREATE TABLE IF NOT EXISTS "tblUsers" (
+    id INTEGER NOT NULL, 
+    name VARCHAR NOT NULL, 
+    username VARCHAR NOT NULL, 
+    job VARCHAR NOT NULL, 
+    photo VARCHAR NOT NULL, 
+    PRIMARY KEY (id)
+)''')
 
-
+cur.execute('''CREATE TABLE IF NOT EXISTS "tblPosts" (
+    id INTEGER NOT NULL, 
+    id_user INTEGER, 
+    title VARCHAR NOT NULL, 
+    description VARCHAR NOT NULL, 
+    date TIMESTAMP, 
+    PRIMARY KEY (id), 
+    FOREIGN KEY(id_user) REFERENCES "tblUsers" (id)
+)
+)''')
 def add_user(user:User):
-    
-
     cur.execute(f"""INSERT INTO tblUsers VALUES
                 ({user.id}, '{user.name}', '{user.username}','{user.job}','{user.photo}')
                 """

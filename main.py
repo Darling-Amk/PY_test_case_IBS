@@ -5,8 +5,8 @@ from src.models import User,Post
 from src.database import get_posts, get_users, add_user, add_post
 
 app = FastAPI()
-
-@app.get('/users',response_model=List[User])
+#,response_model=List[User]
+@app.get('/users')
 def getUsers(offset:int = 0,limit:int=None):
     return get_users(offset,limit)
 
