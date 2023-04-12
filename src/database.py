@@ -8,6 +8,8 @@ cur = con.cursor()
 
 
 def add_user(user:User):
+    
+
     cur.execute(f"""INSERT INTO tblUsers VALUES
                 ({user.id}, '{user.name}', '{user.username}','{user.job}','{user.photo}')
                 """
@@ -24,6 +26,8 @@ def add_post(post:Post):
     return get_posts(post.id_user)
 
 def get_users(offset=0,limit=None):
+    if not con:
+        return ["error connect"]
     res = []
     q = "SELECT * from tblUsers"
 
