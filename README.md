@@ -32,7 +32,10 @@ alembic init migration
 ```
 [alembic]
 ...
-sqlalchemy.url = sqlite:///Путь до папки с проектом/ibs.db
+sqlalchemy.url = sqlite:///{Путь до папки с проектом}/ibs.db
+
+Пример:
+sqlalchemy.url = sqlite:////tmp/PY_test_case_IBS/ibs.db
 ```
 8. В созданной папке migration изменяем файл env.py 
 ```
@@ -43,12 +46,12 @@ from src.models import metadata
 # меняем None на metadata в 21 строке
 target_metadata = metadata
 ```
-9. Создаем первую миграцию
+9. Создаем первую миграцию(находясь в папке проекта)
 ```
 alembic revision --autogenerate -m 'initial'
 ```
 
-10. Применяем миграцию из папки versions
+10. Применяем миграцию из папки versions (вставить нужно только название,без преписки \_initial.py)
 ```
 alembic upgrade сгенерерованное_имя_миграции
 ```
