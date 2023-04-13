@@ -130,5 +130,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-
+*.db
+migrations
+migrations/*
+alembic.ini
 .idea/*

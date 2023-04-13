@@ -24,4 +24,4 @@ def addPost(post:Post):
 
 
 if __name__ == "__main__":
-    uvicorn.run('myapp:app', log_level="debug", reload=True)
+    uvicorn.run('main:app', log_level="debug", reload=True)
