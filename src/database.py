@@ -29,7 +29,7 @@ def add_user(user:User):
                 """
                 )
     con.commit()
-    return get_users()
+    return get_users(limit=1)
 
 def add_post(post:Post):
     cur.execute(f"""INSERT INTO tblPosts VALUES
@@ -37,7 +37,7 @@ def add_post(post:Post):
                 """
                 )
     con.commit()
-    return get_posts(post.id_user)
+    return get_posts(post.id_user,limit=1)
 
 def get_users(limit=5,offset=0,orderBy='ASC',OrderField='id'):
     res = []
