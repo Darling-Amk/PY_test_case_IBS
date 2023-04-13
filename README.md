@@ -32,7 +32,7 @@ alembic init migration
 ```
 [alembic]
 ...
-sqlalchemy.url = sqlite:///ibs.db
+sqlalchemy.url = sqlite:///Путь до папки с проектом/ibs.db
 ```
 8. В созданной папке migration изменяем файл env.py 
 ```
@@ -40,7 +40,7 @@ sqlalchemy.url = sqlite:///ibs.db
 from src.models import metadata
 
 ...
-# меняем None на metada
+# меняем None на metadata в 21 строке
 target_metadata = metadata
 ```
 9. Создаем первую миграцию
