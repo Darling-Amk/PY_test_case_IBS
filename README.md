@@ -32,7 +32,7 @@ alembic init migration
 ```
 [alembic]
 ...
-sqlalchemy.url = sqlite:///ibs.db
+sqlalchemy.url = sqlite:///Путь до папки с проектом/ibs.db
 ```
 8. В созданной папке migration изменяем файл env.py 
 ```
