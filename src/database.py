@@ -1,9 +1,8 @@
 import sqlite3
-from src.config import DB_PATH,DB_FILE
 from src.models import User,Post
 
 
-con = sqlite3.connect(f'../ibs.db', check_same_thread=False)
+con = sqlite3.connect(f'ibs.db', check_same_thread=False)
 cur = con.cursor()
 
 def add_user(user:User):
