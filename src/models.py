@@ -1,21 +1,31 @@
 from datetime import datetime
 from pydantic import BaseModel
-from typing import Optional
-from sqlalchemy import MetaData,Integer,String,TIMESTAMP,ForeignKey,Table,Column
+from typing import Optional, Literal, Union
+from sqlalchemy import MetaData,Integer,String,TIMESTAMP,ForeignKey,Table,Column,Identity
 
 metadata = MetaData()
 
 
-class User(BaseModel):
+class getUser(BaseModel):
     id: int
     name: str
     username: str
     job: str
     photo: Optional[str] = None
 
-
+class User(BaseModel):
+    name: str
+    username: str
+    job: str
+    photo: Optional[str] = None
 
 class Post(BaseModel):
+    id_user: int
+    title: str
+    description: str
+    date: Optional[datetime]
+
+class getPost(BaseModel):
     id: int
     id_user: int
     title: str
@@ -25,7 +35,7 @@ class Post(BaseModel):
 Users = Table(
     "tblUsers",
     metadata,
-    Column("id",Integer,primary_key=True),
+    Column("id",Integer,Identity(),primary_key=True),
     Column("name",String,nullable=False),
     Column("username",String,nullable=False),
     Column("job",String,nullable=False),
@@ -35,7 +45,7 @@ Users = Table(
 Posts = Table(
     "tblPosts",
     metadata,
-    Column("id",Integer,primary_key=True),
+    Column("id",Integer,Identity(),primary_key=True),
     Column("id_user",Integer,ForeignKey("tblUsers.id")),
     Column("title",String,nullable=False),
     Column("description",String,nullable=False),
