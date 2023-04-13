@@ -40,7 +40,7 @@ sqlalchemy.url = sqlite:///Путь до папки с проектом/ibs.db
 from src.models import metadata
 
 ...
-# меняем None на metada
+# меняем None на metadata в 21 строке
 target_metadata = metadata
 ```
 9. Создаем первую миграцию
