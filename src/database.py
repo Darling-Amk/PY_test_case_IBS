@@ -29,15 +29,15 @@ def add_user(user:User):
                 """
                 )
     con.commit()
-    return get_users(limit=1)
+    return get_users(limit=1,orderBy='DESK')
 
 def add_post(post:Post):
     cur.execute(f"""INSERT INTO tblPosts VALUES
-                ('NULL ,{post.id_user}', '{post.title}', '{post.description}','{post.date}')
+                (NULL ,'{post.id_user}', '{post.title}', '{post.description}','{post.date}')
                 """
                 )
     con.commit()
-    return get_posts(post.id_user,limit=1)
+    return get_posts(post.id_user,limit=1,orderBy='DESK')
 
 def get_users(limit=5,offset=0,orderBy='ASC',OrderField='id'):
     res = []

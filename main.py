@@ -42,7 +42,7 @@ def addUser(user:User):
     res = add_user(user)
     return res
 
-@app.post('/posts/',status_code=status.HTTP_201_CREATED)
+@app.post('/posts',status_code=status.HTTP_201_CREATED)
 def addPost(post:Post):
     res = add_post(post)
     return res
